@@ -8,9 +8,18 @@ h1 {
   font-size: 34px;
 }
 
+header {
+  background-color: #00ff4c;
+  background-image: url(./img/buttons.png);
+  background-repeat: no-repeat;
+  background-position: 99% 50%;
+  width: 100%;
+}
+
 header h1 {
   color: #061205;
-  padding-top: 6px;
+  /* padding-top: 4px; */
+  padding-left: 10px;
 }
 
 h2 {
@@ -29,9 +38,15 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .app-screen {
+  /* background-image: url(./img/window.png); */
+  /* background-repeat: no-repeat; */
+  background-color: #061205;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,8 +54,10 @@ body {
   /* height: 813px; */
   flex-direction: column;
   margin: 0 auto;
-  /* border: 3px solid red; */
-  padding-top: 159px;
+  border: 4px solid #00ff4c;
+  border-radius: 2px;
+  /* padding-top: 159px; */
+  box-shadow: -1px -1px 38px 5px rgba(0, 255, 76, 0.2);
 }
 
 .container {
@@ -48,8 +65,12 @@ body {
   flex-direction: column;
   justify-content: center;
   /* border: 3px solid blueviolet; */
-  padding: 14px;
+  padding: 0 14px 30px;
   width: 93%;
+  border: 3px solid #00ff4c;
+  border-radius: 1px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .selector {
@@ -113,4 +134,5 @@ footer a {
   color: #00ff4c;
   text-decoration: none;
   font-weight: bold;
+  cursor: url(./img/cursor-a.svg), auto;
 }

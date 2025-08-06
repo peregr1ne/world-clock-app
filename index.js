@@ -7,31 +7,44 @@
 
 // let citySelect = document.querySelector("#cities");
 // citySelect.addEventListener("change", showTime);
+function cityName(name) {
+  return document.querySelector(name);
+}
+
+function cityTime(time) {
+  return moment().tz(time);
+}
 
 function updateTime() {
-  let kharkivElement = document.querySelector("#kharkiv");
+  console.log("olol");
+  let timeFormat = "h:mm:ss [<small>]A[</small>]";
+  let kharkivElement = cityName("#kharkiv");
   let kharkivDateElement = kharkivElement.querySelector(".date");
   let kharkivTimeElement = kharkivElement.querySelector(".time");
-  let kharkivTime = moment().tz("Europe/Kyiv");
+  let kharkivTime = cityTime("Europe/Kyiv");
 
   kharkivDateElement.innerHTML = kharkivTime.format("MMMM Do YYYY");
-  kharkivTimeElement.innerHTML = `${kharkivTime.format(
-    "h:mm:ss [<small>]A[</small>]"
-  )}`;
+  kharkivTimeElement.innerHTML = `${kharkivTime.format(timeFormat)}`;
 
   // LA
-  let losAngelesElement = document.querySelector("#los-angeles");
+  let losAngelesElement = cityName("#los-angeles");
   let losAngelesDateElement = losAngelesElement.querySelector(".date");
   let losAngelesTimeElement = losAngelesElement.querySelector(".time");
-  let losAngelesTime = moment().tz("America/Los_Angeles");
+  let losAngelesTime = cityTime("America/Los_Angeles");
 
   losAngelesDateElement.innerHTML = losAngelesTime.format("MMMM Do YYYY");
-  losAngelesTimeElement.innerHTML = `${losAngelesTime.format(
-    "h:mm:ss [<small>]A[</small>]"
-  )}`;
+  losAngelesTimeElement.innerHTML = `${losAngelesTime.format(timeFormat)}`;
+
+  // Sevilla
+  let sevillaElement = cityName("#sevilla");
+  let sevillaDateElement = sevillaElement.querySelector(".date");
+  let sevillaTimeElement = sevillaElement.querySelector(".time");
+  let sevillaTime = cityTime("Europe/Madrid");
+
+  sevillaDateElement.innerHTML = sevillaTime.format("MMMM Do YYYY");
+  sevillaTimeElement.innerHTML = `${sevillaTime.format(timeFormat)}`;
 }
 updateTime();
-setInterval(updateTime, 1000);
 
 function updateCity(event) {
   let cityTimeZone = event.target.value;
@@ -52,8 +65,10 @@ function updateCity(event) {
                 <div class="time">${cityTime.format(
                   "h:mm:ss"
                 )}<small>${cityTime.format("A")}</small></div>
-              </div>`;
+              </div>
+              <a href="index.html" class="back">Back</a>`;
 }
 
 let citiesSelectElement = document.querySelector("#city-selector");
 citiesSelectElement.addEventListener("change", updateCity);
+setInterval(updateTime, updateCity, 1000);

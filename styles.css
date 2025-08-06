@@ -96,7 +96,7 @@ body {
 .city {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px dashed #00ff4c64;
+  border-bottom: 1px dashed #00ff4c2b;
   padding: 30px 83px;
   margin: 16px 0 16px 0;
 }
